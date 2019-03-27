@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% block title %}<title>Local Library</title>{% endblock %}
+  <title>{% block title %} Local Library {% endblock %}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -10,7 +10,7 @@
 
     <!-- add additional CSS in static file -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'app/style.css' %}"
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}"
 
 </head>
 <body>
@@ -21,6 +21,7 @@
     {% block sidebar %}
         <ul class="sidebar-nav">
             <li><a href="/">Home</a></li>
+            <li><a href="/admin">Admin page</a></li>
             <li><a href="#">All books</a></li>
             <li><a href="#">All Authers</a></li>
         </ul>
