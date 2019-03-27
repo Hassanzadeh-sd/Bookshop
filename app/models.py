@@ -42,7 +42,7 @@ class BookInstance(models.Model):
         ('m', 'Maintenance'),
         ('o', 'On loan'),
         ('a', 'Available'),
-        ('r', 'Reserved'),
+        ('r', 'Reserved')
     )
 
     status=     models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default='m' , help_text="Book avilable status")
