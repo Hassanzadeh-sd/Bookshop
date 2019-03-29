@@ -14,7 +14,7 @@ class Author(models.Model):
     date_of_birth=  models.DateField(blank=True, null=True)
 
     def get_absolute_url(self):
-        return reverse("author-detail", args=[str(self.id)])
+        return reverse("app:author-detail", args=[str(self.id)])
 
     def __str__(self):
         return '%s , %s' % (self.last_name, self.first_name)
@@ -30,7 +30,7 @@ class Book(models.Model):
         return  self.title
 
     def get_absolute_url(self):
-        return reverse("book-detail", args=[str(self.id)])
+        return reverse("app:book-detail", args=[str(self.id)])
 
 class BookInstance(models.Model):
     id=         models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="Unique ID for this book")
