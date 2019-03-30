@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from . import models
 from django.views.generic import TemplateView
@@ -32,13 +32,18 @@ def Book_detail(request , pk):
 def Author(request):
     context = {
     'author_list' : models.Author.objects.all(),
-    'test' : 'sssssss',
     }
   
     return render(request,'app/author.html' , context)        
 
 def Author_detail(request,pk):
-    return HttpResponse(pk + "DEtailsssssss")
+    obj = get_object_or_404(models.Author, pk=pk)
+    context = {
+    'author' : obj,
+    }
+  
+    return render(request,'app/author_detail.html' , context)        
+
 
 
 # class Index(TemplateView):

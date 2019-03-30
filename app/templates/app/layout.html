@@ -20,10 +20,10 @@
     <div class="col-sm-2">
     {% block sidebar %}
         <ul class="sidebar-nav">
-            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'app:Index' %}">Home</a></li>
             <li><a href="/admin">Admin page</a></li>
-            <li><a href="#">All books</a></li>
-            <li><a href="#">All Authers</a></li>
+            <li><a href="{% url 'app:book-list' %}">All books</a></li>
+            <li><a href="{% url 'app:author' %}">All Authers</a></li>
         </ul>
     {% endblock %}
     </div>
