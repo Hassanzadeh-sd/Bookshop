@@ -6,6 +6,7 @@ app_name= "app"
 urlpatterns = [
     # ex : /book/
     url(r'^$', views.Index, name="Index"),
+    url(r'^test$', views.test, name="test"),
     # ex : /book/list
     url(r'^list/$', views.Book_list, name="book-list"),
     # ex : /book/1/

@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 import uuid
+from datetime import date
 
 class Genre(models.Model):
     name=       models.CharField(max_length=200 , help_text="Enter a book genre")
@@ -18,6 +19,12 @@ class Author(models.Model):
 
     def __str__(self):
         return '%s , %s' % (self.last_name, self.first_name)
+
+    @property
+    def date_check(self):
+        if self.date_of_birth and self.date_of_birth < date.today():
+            return True
+        return False
 
 class Book(models.Model):
     title=      models.CharField(max_length=200)

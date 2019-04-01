@@ -24,6 +24,12 @@
             <li><a href="/admin">Admin page</a></li>
             <li><a href="{% url 'app:book-list' %}">All books</a></li>
             <li><a href="{% url 'app:author' %}">All Authers</a></li>
+            {% if user.is_authenticated %}
+              <li> User : {{ user.get_username }}
+              <li><a href="{% url 'logout' %}?next={{request.path}}">Logout</a></li>
+            {% else %}
+              <li><a href="{% url 'login' %}?next={{request.path}}">Login</a></li>
+            {% endif %}
         </ul>
     {% endblock %}
     </div>

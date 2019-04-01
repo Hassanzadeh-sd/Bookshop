@@ -3,4 +3,11 @@
 {% block content %}
 <h1>{{ author.first_name }} - {{ author.last_name }}</h1>
 <span>{{ author.date_of_birth }}</span>
+<span>
+{% if author.date_check %}
+    Trueeee
+{% else %}
+    Faaaaaaaalse
+{% endif %}
+</span>
 {% endblock content %}

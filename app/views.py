@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from . import models
 from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
+from django.utils.translation import ugettext_lazy as _
+from . import forms
 
 def Index(request):
     context = {
@@ -13,7 +16,7 @@ def Index(request):
   
     return render(request,'app/index.html' , context)        
 
-
+@login_required
 def Book_list(request):
     context = {
     'book_list' : models.Book.objects.all()
@@ -27,6 +30,15 @@ def Book_detail(request , pk):
     }
   
     return render(request,'app/book_detail.html' , context)        
+
+
+def test(request):
+    if request.method == "POST":
+        form = forms.TestForm(request.POST)
+    else:
+        form = forms.TestForm()
+    
+    return render(request, 'app/form.html', {'form': form})
 
 
 def Author(request):
